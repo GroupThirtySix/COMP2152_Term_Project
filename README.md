@@ -2,22 +2,22 @@
 
 ## Team Name
 <!-- Replace with your team name -->
-Team _______
+Team GroupThirtySix
 
 ## Team Members
 
 | Member | Vulnerability Found | Branch Name |
 |--------|-------------------|-------------|
-| _______ | _______ | _______ |
-| _______ | _______ | _______ |
+| Duc Thien Doan | HTTPS not enforcement | duc_thien_doan_https |
+| Gia Duc Can | Missing security header | gia_duc_can_security_header |
 | _______ | _______ | _______ |
 
 ## Videos
 
 Each team member records a short video (max 3 minutes) explaining their vulnerability. Add your YouTube links below:
 
-- Member 1: https://youtube.com/watch?v=_______
-- Member 2: https://youtube.com/watch?v=_______
+- Member 1: https://www.youtube.com/watch?v=g21tnvQxDSQ
+- Member 2: https://www.youtube.com/watch?v=r8QErTyHV70
 - Member 3: https://youtube.com/watch?v=_______
 
 ## Target
