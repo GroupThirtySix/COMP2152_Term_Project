@@ -10,7 +10,7 @@ Team GroupThirtySix
 |--------|-------------------|-------------|
 | Duc Thien Doan | HTTPS not enforcement | duc_thien_doan_https |
 | Gia Duc Can | Missing security header | gia_duc_can_security_header |
-| _______ | _______ | _______ |
+| Tan Phat Nguyen | SSRF_Server-Side Request Forgery | tan_phat_nguyen_SSRF.py |
 
 ## Videos
 
@@ -18,7 +18,7 @@ Each team member records a short video (max 3 minutes) explaining their vulnerab
 
 - Member 1: https://www.youtube.com/watch?v=g21tnvQxDSQ
 - Member 2: https://www.youtube.com/watch?v=r8QErTyHV70
-- Member 3: https://youtube.com/watch?v=_______
+- Member 3: https://youtube.com/watch?v=l9W_MnB5jNA
 
 ## Target
 
