@@ -11,6 +11,7 @@ Team GroupThirtySix
 | Duc Thien Doan | HTTPS not enforcement | duc_thien_doan_https |
 | Gia Duc Can | Missing security header | gia_duc_can_security_header |
 | Tan Phat Nguyen | SSRF_Server-Side Request Forgery | tan_phat_nguyen_SSRF.py |
+| Tien Le | Jenkins Script Console Exposure (RCE) | tien_le_RCE.py |
 
 ## Videos
 
@@ -19,7 +20,7 @@ Each team member records a short video (max 3 minutes) explaining their vulnerab
 - Member 1: https://www.youtube.com/watch?v=g21tnvQxDSQ
 - Member 2: https://www.youtube.com/watch?v=r8QErTyHV70
 - Member 3: https://youtube.com/watch?v=l9W_MnB5jNA
-
+- Member 4: https://youtube.com/watch?v=BtRS_Zpa_uc
 ## Target
 
 - Server: `0x10.cloud` and its subdomains
