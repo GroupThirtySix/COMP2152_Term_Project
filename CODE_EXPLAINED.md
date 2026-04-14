@@ -54,6 +54,59 @@ The `try/except` block handles connection or request errors cleanly. If somethin
 
 ---
 
+## tan_phat_nguyen_ssrf.py
+
+**Goal:** Check whether `webhook.0x10.cloud` can be abused for SSRF by making the server request internal addresses.
+
+This script sends controlled `url` parameters to the webhook service and compares the response length for external and internal targets. If the server responds differently to `127.0.0.1` or an internal port like `6379`, that suggests SSRF.
+
+The script uses:
+
+- `verify_service()` to confirm the webhook endpoint is reachable before testing
+- `fetch_length()` to request a URL and return the response length
+- `test_ssrf()` to compare external and internal requests and collect findings
+- `rate_limit_pause()` to respect the project rate limit
+
+The main logic is:
+
+```python
+external_len = fetch_length(base_url + "?url=http://example.com")
+internal_len = fetch_length(base_url + "?url=http://127.0.0.1")
+redis_len = fetch_length(base_url + "?url=http://127.0.0.1:6379")
+```
+
+If an internal request works or produces a different response from the external one, the script reports possible SSRF. This matters because SSRF can let an attacker make the server access internal services that should not be publicly reachable.
+
+The `try/except` blocks keep the script from crashing when a request fails. At the end, it prints either the SSRF findings or an OK message.
+
+---
+
+## tien_le_rce.py
+
+**Goal:** Check whether `jenkins.0x10.cloud/script` exposes the Jenkins Script Console without authentication.
+
+This script connects to the Jenkins Script Console page and checks whether it can be accessed directly. If the page does not require login and contains keywords like `script` or `groovy`, that suggests the console is exposed and could lead to remote code execution.
+
+The script uses:
+
+- `rate_limit_pause()` to respect the project rate limit
+- `check_jenkins_script_console()` to request the page and look for signs of unauthenticated Script Console access
+- `print_banner()` to show clear script information in the terminal
+
+The main logic is:
+
+```python
+if "login" not in body.lower():
+    if "script" in body.lower() or "groovy" in body.lower():
+        return True
+```
+
+If the response does not show a login page and includes Script Console indicators, the script reports a vulnerability. This is serious because an exposed Jenkins Script Console can allow attackers to run arbitrary code on the server.
+
+The `try/except` blocks handle HTTP, connection, and unexpected errors cleanly. At the end, the script prints whether the target appears vulnerable or secure.
+
+---
+
 ## Patterns to Reuse
 
 When you write your own vulnerability scripts, you'll use the same building blocks:
